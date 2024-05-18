@@ -219,6 +219,3 @@ if prompt := st.chat_input("Enter your query (or type 'exit' to quit):"):
         st.session_state.messages.append(
             {"role": "assistant", "content": f"An error occurred: {e}"}
         )
-
-
-
