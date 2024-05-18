@@ -1,5 +1,7 @@
 import streamlit as st
-from openai import OpenAI
+
+# from openai import OpenAI
+from openai import AzureOpenAI
 import psycopg2
 import os
 from decimal import Decimal
@@ -9,7 +11,8 @@ import dotenv
 dotenv.load_dotenv()
 
 # Set up OpenAI API credentials
-client = OpenAI()
+# client = OpenAI()
+client = AzureOpenAI()
 
 # PostgreSQL connection details
 DB_HOST = os.getenv("Host")
@@ -24,7 +27,8 @@ conn = psycopg2.connect(
 )
 
 
-def query_to_vector(text, model="text-embedding-3-large"):
+# def query_to_vector(text, model="text-embedding-3-large"): # for OpenAI
+def query_to_vector(text, model="liq-text-embedding"):  # for Azure
     """
     Converts text to a vector using OpenAI's embedding model.
     """
@@ -98,7 +102,8 @@ def gpt_4o_analysis(question, context):
     ]
 
     response = client.chat.completions.create(
-        model="gpt-4o",
+        model="liq-gpt-4-32k",  # for Azure
+        # model="gpt-4o", # for OpenAI
         max_tokens=500,
         n=1,
         stop=None,
