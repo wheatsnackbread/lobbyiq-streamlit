@@ -255,3 +255,147 @@ Based on these themes, a potential strategy could involve:
 However, without more specific information about the interests of these organizations in generative AI and semantic search, it is difficult to provide a more detailed strategy.
 
 
+User Input: Find registrations related to dairy.
+Results Returned:
+{'registration_linking_id': 10, 'description': 'accessing federal government support under the dairy processing investment fund for processing and product expansion activities.. discussions regarding the special milk class permit program administered by the cdc', 'matching_reg_id_enr': [Decimal('944932')], 'client_clean': 'Arla Foods Inc.', 'client_clean_fr': 'Arla Foods Inc.', 'client_clean_coalesce': 'Arla Foods Inc.', 'firm_clean': 'Brendain Incorporated', 'firm_clean_fr': None, 'firm_clean_coalesce': 'Brendain Incorporated', 'matching_effective_date_vigueur': [datetime.date(2024, 1, 5)], 'matching_end_date_fin': [None], 'score': 0.48650173722223267}
+{'registration_linking_id': 2337, 'description': "supply management marketing system - maintaining government support for the principle of supply management for the canadian dairy sector.. wto and other trade negotiations and implications for supply management, including compensation.. discussions relating to canada's food guide and dairy's role as an essential party of a healthy diet. additionally, changes to front-of-package labelling regulations.", 'matching_reg_id_enr': [Decimal('950250')], 'client_clean': 'Dairy Farmers of Ontario', 'client_clean_fr': None, 'client_clean_coalesce': 'Dairy Farmers of Ontario', 'firm_clean': 'Wellington Advocacy', 'firm_clean_fr': None, 'firm_clean_coalesce': 'Wellington Advocacy', 'matching_effective_date_vigueur': [datetime.date(2024, 4, 16)], 'matching_end_date_fin': [None], 'score': 0.45983898639678955}
+{'registration_linking_id': 596, 'description': "consumer issues - the perceived quality and safety of canadian dairy products versus that of imported goods is of paramount concern to the dairy industry. to this end, we have an interest in ensuring the integrity of the product of canada and made in canada logos by maintaining the current canadian thresholds and continuing to transparently identify imported content on dairy products. we support the introduction of a grocery code of conduct to strengthen domestic food security for consumers.. environment - the dairy industry is interested in sustainable development, and participation in the pan-canadian framework on clean growth and climate change, in order to support the federal sustainable development strategy (fsds).. health - as per canada's food guide, we encourage the public to consume milk to meet the daily dairy requirements of important vitamins and minerals. we seek for the inclusion of the latest scientific evidence about the nutritional value of dairy products within canada's healthy eating strategy on an on-going basis.. international trade - the dairy industry supports maintaining canada's supply managed agricultural system. one of the main pillars for the success of supply management (on which the dairy industry in canada is based) is import control. we have an interest in increasing resources for cfia and cbsa to ensure compliance for imported products.  \n\nwhen market concessions occur in trade agreements, including the canada-united states-mexico agreement (cusma), we seek federal government mitigation for impacts on dairy farmers. we also seek the maximization of allowable permanent trqs allocated to canadian dairy processors. we ask that no domestic dairy market concessions are made in future trade agreements.. bc dairy is seeking to work with government to address the mounting challenges faced by dairy farmers due to soaring production costs. rising expenses for feed, labour, and other inputs continue to impact dairy farm business sustainability. bc dairy seeks to engage with government to ensure the sustainability of this vital sector's ability to feed communities. we ask that canada’s suite of brm programs be reviewed and updated with a view to modernizing these programs to increase accessibility and provide optimum support to farmers and producers.", 'matching_reg_id_enr': [Decimal('951292')], 'client_clean': 'BC Dairy Association', 'client_clean_fr': None, 'client_clean_coalesce': 'BC Dairy Association', 'firm_clean': None, 'firm_clean_fr': None, 'firm_clean_coalesce': None, 'matching_effective_date_vigueur': [datetime.date(2024, 5, 1)], 'matching_end_date_fin': [None], 'score': 0.45856554682748185}
+{'registration_linking_id': 1864, 'description': 'proposed regulatory framework for recycled content and labelling rules for plastics.. proposed policy on restricting food advertising primarily directed at children.. notice of intent regarding the minister of health’s intention to publish marketing authorizations to permit vitamin d fortification of yogurt and kefir and expand the eligibility for the dairy-related exemption from the front-of-package nutrition labelling requirement.. measures to stabilize food prices including the establishment of a grocery task force and a food data hub, and additional initiatives being contemplated by the government.. international trade agreements -- mitigating the impact of current and future trade agreements on the canadian dairy processing sector, including the canada-united states-mexico agreement (cusma), the comprehensive economic and trade agreement (ceta) and the comprehensive and progressive trans-pacific partnership (cptpp).. health of animals regulations - regarding proposed amendment of the humane transport requirements.. development and adoption of a grocery code of conduct by industry.. dairy products regulations -- regarding revised cheese compositional standards.. food and drug regulations -- regarding dairy standards of identity and labelling.. components of health canada’s healthy eating strategy.. bill c-252 – an act to amend the food and drugs act (prohibition of food and beverage marketing directed at children. canada’s trade policy and tariff rate quota allocation and administration regarding dairy products.. canadian food inspection agency feed regulatory renewal, project to modernize the feed regulations.. dairy policy -- role and responsibilities of canadian dairy commission and the canadian milk supply management committee.. canadian food inspection agency guidelines for labelling of highlighted ingredients and flavours with respect to clarity.. canadian food inspection agency labelling modernization initiative with respect to food.. canadian food inspection agency regulatory modernization initiative with respect to food safety.. canadian food inspection agency food inspection modernization initiative with respect to food safety and consistent delivery.', 'matching_reg_id_enr': [Decimal('949534')], 'client_clean': 'Dairy Processors Association of Canada', 'client_clean_fr': None, 'client_clean_coalesce': 'Dairy Processors Association of Canada', 'firm_clean': None, 'firm_clean_fr': None, 'firm_clean_coalesce': None, 'matching_effective_date_vigueur': [datetime.date(2024, 4, 9)], 'matching_end_date_fin': [None], 'score': 0.4554198980331421}
+{'registration_linking_id': 2735, 'description': "with respect to the international trade agreements to advocate that dairy products manufacturers need to be consulted regarding international trade agreements because of the significant impact these agreements may have on the dairy processing sector.. national milk marketing plan – advocate for the appropriate administration of the national milk marketing plan to ensure that dairy product manufacturers are not adversely affected by any changes that might be proposed. advocate to ensure that dairy product manufacturers are consulted and heard on all dairy related issues.. provide input and feedback to government on regulations, policies, programs to ensure that dairy processors views are taken into account that any results do not impede dairy processors’ competitiveness or their ability to grow their dairy processing activity. advocate for dairy processor interests related to any proposed changes to dairy products regulations as proposed by dairy farmers of canada or others and considered by the government.. import permits (trqs) – intervene to ensure that any proposed changes to existing rules and legislation are fair and equitable and do not adversely affect the dairy processing sector.. advocate for increased efficiency to immigration programs to address the canadian labour shortage and to ensure that programs have sufficient flexibility to support industry needs.. intervene on all proposals made by the dairy farmers of canada or others concerning the restriction or changes to the rules for the importation or use of concentrated milk proteins or other milk ingredients.\n\nloi sur les licences d'exportation et d'importation;\nloi sur la commission canadienne du lait;\nrèglement sur les produits laitiers (dairy products regulations)", 'matching_reg_id_enr': [Decimal('948868')], 'client_clean': 'Saputo inc.', 'client_clean_fr': None, 'client_clean_coalesce': 'Saputo inc.', 'firm_clean': None, 'firm_clean_fr': None, 'firm_clean_coalesce': None, 'matching_effective_date_vigueur': [datetime.date(2024, 3, 29)], 'matching_end_date_fin': [None], 'score': 0.45339358648562733}
+AI Response: Based on the provided context, here are the registrations related to dairy:
+
+1. **Arla Foods Inc.**
+   - **Firm:** Brendain Incorporated
+   - **Description:** Accessing federal government support under the Dairy Processing Investment Fund for processing and product expansion activities. Discussions regarding the Special Milk Class Permit Program administered by the CDC.
+   - **Effective Date:** January 5, 2024
+   - **Registration ID:** 944932
+
+2. **Dairy Farmers of Ontario**
+   - **Firm:** Wellington Advocacy
+   - **Description:** Supply management marketing system - maintaining government support for the principle of supply management for the Canadian dairy sector. WTO and other trade negotiations and implications for supply management, including compensation. Discussions relating to Canada's Food Guide and dairy's role as an essential part of a healthy diet. Additionally, changes to front-of-package labelling regulations.
+   - **Effective Date:** April 16, 2024
+   - **Registration ID:** 950250
+
+3. **BC Dairy Association**
+   - **Description:** Consumer issues - ensuring the integrity of the Product of Canada and Made in Canada logos by maintaining current Canadian thresholds and identifying imported content on dairy products. Support for a grocery code of conduct to strengthen domestic food security. Interest in sustainable development and participation in the Pan-Canadian Framework on Clean Growth and Climate Change. Encouraging the public to consume milk as per Canada's Food Guide. Support for maintaining Canada's supply managed agricultural system. Seeking federal government mitigation for impacts on dairy farmers due to market concessions in trade agreements. Addressing challenges faced by dairy farmers due to soaring production costs.
+   - **Effective Date:** May 1, 2024
+   - **Registration ID:** 951292
+
+4. **Dairy Processors Association of Canada**
+   - **Description:** Proposed regulatory framework for recycled content and labelling rules for plastics. Proposed policy on restricting food advertising primarily directed at children. Notice of intent regarding vitamin D fortification of yogurt and kefir. Measures to stabilize food prices. Mitigating the impact of current and future trade agreements on the Canadian dairy processing sector. Development and adoption of a grocery code of conduct. Various regulations and policies related to dairy products and food safety.
+   - **Effective Date:** April 9, 2024
+   - **Registration ID:** 949534
+
+5. **Saputo Inc.**
+   - **Description:** Advocating for consultation of dairy product manufacturers regarding international trade agreements. Ensuring appropriate administration of the National Milk Marketing Plan. Providing input on regulations, policies, and programs to ensure competitiveness and growth of dairy processing activity. Advocating for fair and equitable import permits (TRQs) and addressing Canadian labour shortages through immigration programs. Intervening on proposals concerning the importation or use of concentrated milk proteins or other milk ingredients.
+   - **Effective Date:** March 29, 2024
+   - **Registration ID:** 948868
+
+These registrations involve various aspects of the dairy industry, including government support, supply management, trade negotiations, food safety, and regulatory frameworks.
+
+
+User Input: Generate a graph that maps these out in terms of categories.
+Results Returned:
+{'registration_linking_id': 2405, 'description': '- taxation and finance & financial institutions - financial, securities, and other related regulation affecting capital markets, the financial system, investors and financial consumers, including but not limited to: financial reporting; systemic risk; education and credentialing; and other associated regulations.. - privacy and access to information - discussion of privacy regulation as it relates to regulation of securities, investment management and financial services.. -pensions - advancing financial market integrity, transparency and protection for investors and financial consumers.. - labour & immigration - pursue further recognition of cfa program/charter and other similar educational or credentialing programs.. -justice and law enforcement & constitutional issues: jurisdictional issues related to the financial services market.. - employment and training, & small business - to pursue mission-driven activities and outcomes that are aligned with our strategic objectives of advocacy, collaboration, and communication.. - environment, climate & international trade - discuss government programs related to sustainable finance and other climate and sustainability-focused matters.. - education - discussion on the retirement security of canadians through retirement planning, public and registered savings and pension plans, annuities, and other savings and investment incentives or programs, including related research.. - economic development - matters relating to the financial stability of the canadian economy,  and the regulatory elements thereof including systemic risk-related regulation. advocate for entrepreneurship, productivity, and growth of the investment/asset management sector in canada.. - consumer issues & industry & taxation and finance - to advocate for the highest professional standards, integrity, and ethics in the investment industry for the ultimate benefit of canadians (inclusive of the broader financial services industry).. - budget - advocate for the financial literacy, retirement security, and well-being of canadians.. - financial institutions - discuss matters relating to corporate governance, board composition, and disclosure, particularly with respect to diversity.', 'matching_reg_id_enr': [Decimal('949366')], 'client_clean': 'CFA Societies Canada Inc.', 'client_clean_fr': None, 'client_clean_coalesce': 'CFA Societies Canada Inc.', 'firm_clean': None, 'firm_clean_fr': None, 'firm_clean_coalesce': None, 'matching_effective_date_vigueur': [datetime.date(2024, 4, 1)], 'matching_end_date_fin': [None], 'score': 0.1888615449318538}
+{'registration_linking_id': 2357, 'description': 'support for the development of a critical minerals (graphite) mine and construction of a downstream processing facility to produce anode material for batteries (and electric vehicles)', 'matching_reg_id_enr': [Decimal('943793')], 'client_clean': 'Northern Graphite Corporation', 'client_clean_fr': None, 'client_clean_coalesce': 'Northern Graphite Corporation', 'firm_clean': 'Navigator Ltd', 'firm_clean_fr': None, 'firm_clean_coalesce': 'Navigator Ltd', 'matching_effective_date_vigueur': [datetime.date(2023, 11, 30)], 'matching_end_date_fin': [None], 'score': 0.17857015984414604}
+{'registration_linking_id': 1884, 'description': 'provide support to the cba who works on behalf of its members in collaboration with key stakeholders to strengthen, protect and promote a competitive business environment that inspires responsible and sustainable innovation and growth while contributing to a strong canadian economy.\n\nour work also supplements the cba, who is committed to supporting the leadership of non-alcoholic beverage producers in driving canada’s beverage container circular economy, meeting regulatory obligations through proactive stakeholder education and policy development.', 'matching_reg_id_enr': [Decimal('951344')], 'client_clean': 'Canadian Beverage Association', 'client_clean_fr': None, 'client_clean_coalesce': 'Canadian Beverage Association', 'firm_clean': 'Navigator Ltd', 'firm_clean_fr': 'Navigator Ltd', 'firm_clean_coalesce': 'Navigator Ltd', 'matching_effective_date_vigueur': [datetime.date(2024, 4, 24)], 'matching_end_date_fin': [None], 'score': 0.17156029171343645}
+{'registration_linking_id': 762, 'description': 'discussing the potential impacts of s-203 federal framework on autism spectrum disorder act on applied behaviour analysis providers.', 'matching_reg_id_enr': [Decimal('948378')], 'client_clean': 'Ontario Association for Behaviour Analysis', 'client_clean_fr': None, 'client_clean_coalesce': 'Ontario Association for Behaviour Analysis', 'firm_clean': 'Endgame Strategies Inc.', 'firm_clean_fr': None, 'firm_clean_coalesce': 'Endgame Strategies Inc.', 'matching_effective_date_vigueur': [datetime.date(2024, 3, 20)], 'matching_end_date_fin': [None], 'score': 0.1710717270203299}
+{'registration_linking_id': 899, 'description': 'educating policymakers on exchange-traded funds (etfs) in canada to build a profile for the client, ensuring the public service is aware of the benefits of etfs.', 'matching_reg_id_enr': [Decimal('946531')], 'client_clean': 'Canadian Exchange Traded Funds Association', 'client_clean_fr': None, 'client_clean_coalesce': 'Canadian Exchange Traded Funds Association', 'firm_clean': 'Sussex Strategy Group', 'firm_clean_fr': None, 'firm_clean_coalesce': 'Sussex Strategy Group', 'matching_effective_date_vigueur': [datetime.date(2024, 2, 5)], 'matching_end_date_fin': [None], 'score': 0.16527332920352822}
+AI Response: To generate a graph that maps out the provided lobbying activities in terms of categories, we can categorize each activity based on its description and then create a visual representation. Here are the categories and their corresponding activities:
+
+1. **Taxation and Finance & Financial Institutions**
+   - CFA Societies Canada Inc.: Financial, securities, and other related regulation affecting capital markets, the financial system, investors, and financial consumers.
+
+2. **Privacy and Access to Information**
+   - CFA Societies Canada Inc.: Privacy regulation as it relates to regulation of securities, investment management, and financial services.
+
+3. **Pensions**
+   - CFA Societies Canada Inc.: Advancing financial market integrity, transparency, and protection for investors and financial consumers.
+
+4. **Labour & Immigration**
+   - CFA Societies Canada Inc.: Recognition of CFA program/charter and other similar educational or credentialing programs.
+
+5. **Justice and Law Enforcement & Constitutional Issues**
+   - CFA Societies Canada Inc.: Jurisdictional issues related to the financial services market.
+
+6. **Employment and Training & Small Business**
+   - CFA Societies Canada Inc.: Mission-driven activities and outcomes aligned with strategic objectives of advocacy, collaboration, and communication.
+
+7. **Environment, Climate & International Trade**
+   - CFA Societies Canada Inc.: Government programs related to sustainable finance and other climate and sustainability-focused matters.
+   - Northern Graphite Corporation: Development of a critical minerals (graphite) mine and construction of a downstream processing facility for batteries (and electric vehicles).
+
+8. **Education**
+   - CFA Societies Canada Inc.: Retirement security of Canadians through retirement planning, public and registered savings and pension plans, annuities, and other savings and investment incentives or programs.
+
+9. **Economic Development**
+   - CFA Societies Canada Inc.: Financial stability of the Canadian economy, regulatory elements including systemic risk-related regulation, entrepreneurship, productivity, and growth of the investment/asset management sector.
+   - Canadian Beverage Association: Strengthen, protect, and promote a competitive business environment, support leadership in driving Canada’s beverage container circular economy.
+
+10. **Consumer Issues & Industry & Taxation and Finance**
+    - CFA Societies Canada Inc.: Advocate for the highest professional standards, integrity, and ethics in the investment industry for the benefit of Canadians.
+
+11. **Budget**
+    - CFA Societies Canada Inc.: Advocate for financial literacy, retirement security, and well-being of Canadians.
+
+12. **Financial Institutions**
+    - CFA Societies Canada Inc.: Corporate governance, board composition, and disclosure, particularly with respect to diversity.
+
+13. **Health**
+    - Ontario Association for Behaviour Analysis: Potential impacts of S-203 Federal Framework on Autism Spectrum Disorder Act on applied behaviour analysis providers.
+
+14. **Education (Specific to ETFs)**
+    - Canadian Exchange Traded Funds Association: Educating policymakers on exchange-traded funds (ETFs) in Canada.
+
+Given these categories, we can create a bar chart to visualize the number of activities in each category.
+
+```python
+import matplotlib.pyplot as plt
+
+# Define categories and their counts
+categories = [
+    "Taxation and Finance & Financial Institutions",
+    "Privacy and Access to Information",
+    "Pensions",
+    "Labour & Immigration",
+    "Justice and Law Enforcement & Constitutional Issues",
+    "Employment and Training & Small Business",
+    "Environment, Climate & International Trade",
+    "Education",
+    "Economic Development",
+    "Consumer Issues & Industry & Taxation and Finance",
+    "Budget",
+    "Financial Institutions",
+    "Health",
+    "Education (Specific to ETFs)"
+]
+
+counts = [
+    1,  # Taxation and Finance & Financial Institutions
+    1,  # Privacy and Access to Information
+    1,  # Pensions
+    1,  # Labour & Immigration
+    1,  # Justice and Law Enforcement & Constitutional Issues
+    1,  # Employment and Training & Small Business
+    2,  # Environment, Climate & International Trade
+    1,  # Education
+    2,  # Economic Development
+    1,  # Consumer Issues & Industry & Taxation and Finance
+    1,  # Budget
+    1,  # Financial Institutions
+    1,  # Health
+    1   # Education (Specific to ETFs)
+]
+
+# Create the bar chart
+plt.figure(figsize=(10, 8))
+plt.barh(categories, counts, color='skyblue')
+plt.xlabel('Number of Activities')
+plt.title('Lobbying Activities by Category')
+plt.tight_layout()
+plt.show()
+```
+
+This code will generate a horizontal bar chart that visualizes the number of lobbying activities in each category. You can run this code in a Python environment with `matplotlib` installed to see the graph.
+
+

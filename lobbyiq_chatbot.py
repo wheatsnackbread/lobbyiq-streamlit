@@ -102,9 +102,9 @@ def gpt_4o_analysis(question, context):
     ]
 
     response = client.chat.completions.create(
-        model="liq-gpt-4-32k",  # for Azure
+        model="liq-gpt-4o",  # for Azure
         # model="gpt-4o", # for OpenAI
-        max_tokens=500,
+        # max_tokens=500,
         n=1,
         stop=None,
         temperature=0.3,
