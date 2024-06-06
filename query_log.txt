@@ -399,3 +399,138 @@ plt.show()
 This code will generate a horizontal bar chart that visualizes the number of lobbying activities in each category. You can run this code in a Python environment with `matplotlib` installed to see the graph.
 
 
+User Input: Can you give me some registrations related to lobbying on generative AI tool adoption in the federal government? Ensure you exclude candidates which are tangentially related but arent' dealing with GENERATIVE AI. Then, draw out some key themes that are shared across the candidates, and devise a strategy for communicating with them for a potential partnership.
+Results Returned:
+{'registration_linking_id': 2517, 'description': 'the pan-canadian artificial intelligence strategy with respect to sustaining and fostering an ongoing relationship with the federal government and opposition parties.', 'matching_reg_id_enr': [Decimal('949952')], 'client_clean': 'Canadian Institute for Advanced Research', 'client_clean_fr': None, 'client_clean_coalesce': 'Canadian Institute for Advanced Research', 'firm_clean': 'New West Public Affairs Inc.', 'firm_clean_fr': None, 'firm_clean_coalesce': 'New West Public Affairs Inc.', 'matching_effective_date_vigueur': [datetime.date(2024, 4, 5)], 'matching_end_date_fin': [None], 'score': 0.5125391636055515}
+{'registration_linking_id': 118, 'description': 'advocating for policies, funding, and incentives to stimulate economic growth and support research and innovation initiatives in the field of automation and artificial intelligence.', 'matching_reg_id_enr': [Decimal('946804')], 'client_clean': 'Rockbank Capital', 'client_clean_fr': None, 'client_clean_coalesce': 'Rockbank Capital', 'firm_clean': None, 'firm_clean_fr': None, 'firm_clean_coalesce': None, 'matching_effective_date_vigueur': [datetime.date(2024, 2, 16)], 'matching_end_date_fin': [None], 'score': 0.4960758679048779}
+{'registration_linking_id': 1772, 'description': "policies or programs as they relate to internet safety and online harms.. policies or programs as they relate to the development and applications of artificial intelligence and the ethical use of artificial intelligence, including facial recognition technology.. policies or programs related to innovation, the digital economy and the adoption of information and communication technologies.. policies or programs related to internet connectivity and broadband access.. policies or programs related to technology and environmental sustainability.. policies or programs related to the regulation of digital platforms.. policies or programs related to the protection of canadian democratic institutions and electoral systems.. policies concerning the regulation of personal and sensitive information, including lawful access policies and cybersecurity.. procurement modernization, as it relates to the standards, terms, conditions and policies that underpin the government of canada's procurement of enterprise ict products and services, including cloud-based services.. proposed transparency reporting guidelines with respect to law enforcement requests for data.. policies or programs related to the increased cross-border transportation links connecting the cascadia innovation corridor.. privacy policy as it relates to the personal information protection and electronic documents act, including the regulations thereunder.. policies concerning the promotion and development of computer science education and digital skills.. internet policy specifically the implementation of policy affecting the governance of the internet.. accessibility policy as it relates to the enactment of the accessible canada act, including the establishment of the canadian accessibility standards development organization and the creation of it standards.. internet safety and security policy affecting information technology companies.. communicating with the government of canada about bill c-26 (an act respecting cyber security, amending the telecommunications act and making consequential amendments to other acts).. communicating with the government of canada about bill c-27 (digital charter implementation act, 2022), more specifically the creation of the consumer privacy protection act, the personal information and data protection tribunal act, and the artificial intelligence and data act.. cybersecurity policy as it relates to the creation of international norms.. communicating with the government of canada about bill c-18 (an act respecting online communications platforms), more specifically about the regulation of online content.. information and communications technology adoption, including cloud and ai technologies, by business and public sector entities.. intellectual property and competition policy affecting information technology companies.. international trade as it relates to intellectual property and digital trade.. internet policy specifically as it relates to cybersecurity and national security.. immigration policy and programs as they relate to attracting and retaining high skilled global talent to canada.", 'matching_reg_id_enr': [Decimal('949970')], 'client_clean': 'Microsoft Canada Inc.', 'client_clean_fr': None, 'client_clean_coalesce': 'Microsoft Canada Inc.', 'firm_clean': None, 'firm_clean_fr': None, 'firm_clean_coalesce': None, 'matching_effective_date_vigueur': [datetime.date(2024, 4, 15)], 'matching_end_date_fin': [None], 'score': 0.4833218271509647}
+{'registration_linking_id': 2523, 'description': "the primary objective of lobbying would be to discuss government's cybersecurity, data management, artificial intelligence, network modernization, cloud adoption and other technology initiatives. also, provide consultancy to the government.", 'matching_reg_id_enr': [Decimal('931567')], 'client_clean': 'Wipro Solutions Canada Limited', 'client_clean_fr': None, 'client_clean_coalesce': 'Wipro Solutions Canada Limited', 'firm_clean': None, 'firm_clean_fr': None, 'firm_clean_coalesce': None, 'matching_effective_date_vigueur': [datetime.date(2023, 1, 17)], 'matching_end_date_fin': [None], 'score': 0.4826980623507162}
+{'registration_linking_id': 1696, 'description': "ongoing tracking c-27 aida legislation as it is reviewed by the house of commons.  engagement is for information purposes in better understanding how legislation may impact organization.. ongoing dialogue in support of canada's global efforts on ai leadership, including working with multilateral organizations such as the g7 in developing ai policies and ai adoption strategies for public sector and enterprise.", 'matching_reg_id_enr': [Decimal('951257')], 'client_clean': 'Open Text Corporation', 'client_clean_fr': None, 'client_clean_coalesce': 'Open Text Corporation', 'firm_clean': None, 'firm_clean_fr': None, 'firm_clean_coalesce': None, 'matching_effective_date_vigueur': [datetime.date(2024, 5, 1)], 'matching_end_date_fin': [None], 'score': 0.4743433453338445}
+AI Response: Based on the provided context, it appears that none of the registrations explicitly mention lobbying for the adoption of generative AI tools in the federal government. The closest matches involve broader AI strategies, cybersecurity, data management, and innovation policies. However, these do not specifically address generative AI.
+
+### Key Themes Across the Candidates
+1. **Artificial Intelligence Strategy and Policy**:
+   - **Canadian Institute for Advanced Research**: Focuses on sustaining and fostering AI relationships with the federal government.
+   - **Microsoft Canada Inc.**: Covers a wide range of AI-related policies, including ethical use and innovation.
+   - **Open Text Corporation**: Engages in AI leadership and policy development.
+
+2. **Cybersecurity and Data Management**:
+   - **Wipro Solutions Canada Limited**: Discusses cybersecurity, data management, and AI initiatives.
+   - **Microsoft Canada Inc.**: Also involved in cybersecurity policies and legislation.
+
+3. **Economic Growth and Innovation**:
+   - **Rockbank Capital**: Advocates for policies and funding to stimulate economic growth through AI and automation.
+
+### Strategy for Communicating for a Potential Partnership
+Given the absence of specific generative AI lobbying activities, the strategy should focus on leveraging the existing AI-related interests of these organizations to introduce the concept of generative AI. Here’s a step-by-step approach:
+
+1. **Identify Common Interests**:
+   - Highlight how generative AI can enhance existing AI strategies, cybersecurity measures, and innovation initiatives.
+   - Emphasize the potential economic benefits and efficiencies that generative AI tools can bring to the federal government.
+
+2. **Tailored Communication**:
+   - **Canadian Institute for Advanced Research**: Propose a partnership to explore how generative AI can be integrated into the Pan-Canadian AI strategy. Emphasize collaborative research opportunities.
+   - **Microsoft Canada Inc.**: Discuss the ethical use and regulatory aspects of generative AI, aligning with their broad AI policy interests. Highlight potential applications in cybersecurity and digital economy.
+   - **Wipro Solutions Canada Limited**: Focus on the practical applications of generative AI in cybersecurity, data management, and network modernization.
+   - **Open Text Corporation**: Engage in discussions about global AI leadership and how generative AI can position Canada as a leader in AI innovation.
+
+3. **Propose Pilot Projects**:
+   - Suggest pilot projects or proof-of-concept initiatives to demonstrate the value of generative AI tools in specific government functions.
+   - Offer to co-develop these projects with the organizations, providing technical expertise and support.
+
+4. **Highlight Success Stories**:
+   - Share case studies and success stories from other sectors or countries where generative AI tools have been successfully adopted.
+   - Provide data and metrics to support the potential impact and benefits.
+
+5. **Facilitate Workshops and Seminars**:
+   - Organize workshops, webinars, or seminars to educate stakeholders about generative AI.
+   - Invite experts and thought leaders to discuss the latest trends, challenges, and opportunities in generative AI.
+
+By aligning the communication strategy with the existing interests and activities of these organizations, you can effectively introduce the concept of generative AI and explore potential partnerships for its adoption in the federal government.
+
+
+User Input: Can you perform a similar task for carbon taxation? Again, bring out some registrations and draw out the key themes and also devise a strategy for communicating with them as a potential partner.
+Results Returned:
+{'registration_linking_id': 528, 'description': 'communicating with government officials about potential collaboration between the company and the government on reductions in greenhouse gas emissions ("ghgs").. communicating with government officials about potential government funding for environmental initiatives, including funding through the clean fuels fund and the strategic innovation fund.. communicating with government officials about investment tax credits for carbon capture, utilisation and storage ("ccus") initiatives.', 'matching_reg_id_enr': [Decimal('949847')], 'client_clean': 'Kanata Clean Power and Climate Technologies Corp.', 'client_clean_fr': None, 'client_clean_coalesce': 'Kanata Clean Power and Climate Technologies Corp.', 'firm_clean': 'Alar Strategy Group Inc.', 'firm_clean_fr': None, 'firm_clean_coalesce': 'Alar Strategy Group Inc.', 'matching_effective_date_vigueur': [datetime.date(2024, 4, 1)], 'matching_end_date_fin': [None], 'score': 0.5067753505901138}
+{'registration_linking_id': 518, 'description': 'communicating about the 2030 emissions reduction plan (“erp”), including proposals to cap emissions within the oil and gas sector.. communicating about collaboration between industry and government in the area of greenhouse gas emissions.. communicating about budget 2024-25, including potential investment tax credits for the energy sector.', 'matching_reg_id_enr': [Decimal('951606')], 'client_clean': 'Pathways Alliance Inc.', 'client_clean_fr': None, 'client_clean_coalesce': 'Pathways Alliance Inc.', 'firm_clean': 'Bluesky Strategy Group', 'firm_clean_fr': None, 'firm_clean_coalesce': 'Bluesky Strategy Group', 'matching_effective_date_vigueur': [datetime.date(2024, 4, 29)], 'matching_end_date_fin': [None], 'score': 0.4791321729579179}
+{'registration_linking_id': 129, 'description': 'advocating, in general, for strategic policies and investments in low-carbon economic opportunities, including carbon capture, utilization, and storage ("ccus"), bioenergy, forestry transition, hydrogen, and clean fuels. the goals of these communications are (i) to maximize outcomes related to emissions reduction and (ii) to help the federal government achieve its climate policy goals.. advocating for additional design features for the carbon capture, utilization, and storage ("ccus") and hydrogen tax credits. the goals of these communications are (i) to maximize outcomes related to emissions reduction and (ii) to help the federal government achieve its climate policy goals.', 'matching_reg_id_enr': [Decimal('949917')], 'client_clean': 'Hydrogen Naturally Inc', 'client_clean_fr': None, 'client_clean_coalesce': 'Hydrogen Naturally Inc', 'firm_clean': '11871722 Canada Inc.', 'firm_clean_fr': None, 'firm_clean_coalesce': '11871722 Canada Inc.', 'matching_effective_date_vigueur': [datetime.date(2024, 4, 1)], 'matching_end_date_fin': [None], 'score': 0.4722627467482996}
+{'registration_linking_id': 221, 'description': "arrange meetings with parliamentarians about the government of canada's engagement on framework development for fuel, alcohol, cannabis and tobacco sales tax arrangements with interested indigenous governments. to create a specified low carbon intensity fuel infrastructure fund that provides non-repayable grants and/or expand clean technologies investment tax credit to capital investements for renewable fuel storage.", 'matching_reg_id_enr': [Decimal('950313')], 'client_clean': 'Canadian Energy Marketers Association', 'client_clean_fr': None, 'client_clean_coalesce': 'Canadian Energy Marketers Association', 'firm_clean': 'Syntax Strategic', 'firm_clean_fr': None, 'firm_clean_coalesce': 'Syntax Strategic', 'matching_effective_date_vigueur': [datetime.date(2024, 4, 17)], 'matching_end_date_fin': [None], 'score': 0.4704968648852862}
+{'registration_linking_id': 552, 'description': 'communicating with the government regarding the drafting and passing of the proposed carbon capture, utilization and storage investment tax credit legislation.. communicating with the government regarding the feasibility and impacts of the proposed "proposed clean electricity regulations", including the \'what we heard report\' released february 16, 2024. specifically, communication detailed that the proposed clean electricity regulations, as drafted, would negatively impact alberta\'s electricity grid.. communicating with the government regarding the feasibility and impacts of the proposed "regulatory framework for an oil and gas sector greenhouse gas emissions cap". specifically, communication detailed that the proposed emissions cap would negatively impact economic sectors across canada.. general communication with respect to climate and decarbonization policies and canada\'s competitiveness relative to other jurisdictions.. general communication with respect to initiatives and policies that impact calgary\'s business community, both positively and negatively, relative to other jurisdictions.', 'matching_reg_id_enr': [Decimal('950949')], 'client_clean': 'Calgary Chamber of Commerce', 'client_clean_fr': None, 'client_clean_coalesce': 'Calgary Chamber of Commerce', 'firm_clean': None, 'firm_clean_fr': None, 'firm_clean_coalesce': None, 'matching_effective_date_vigueur': [datetime.date(2024, 4, 26)], 'matching_end_date_fin': [None], 'score': 0.4662454226978755}
+AI Response: Certainly! Based on the provided context, I will extract key themes from the registrations related to carbon taxation and devise a strategy for communicating with them as potential partners.
+
+### Key Themes from Registrations Related to Carbon Taxation
+
+1. **Collaboration on Greenhouse Gas Emissions Reduction**:
+   - **Kanata Clean Power and Climate Technologies Corp.**: Communicating about potential collaboration with the government on reductions in greenhouse gas emissions and funding for environmental initiatives.
+   - **Pathways Alliance Inc.**: Communicating about the 2030 emissions reduction plan, including proposals to cap emissions within the oil and gas sector.
+
+2. **Investment Tax Credits for Carbon Capture, Utilization, and Storage (CCUS)**:
+   - **Kanata Clean Power and Climate Technologies Corp.**: Communicating about investment tax credits for CCUS initiatives.
+   - **Hydrogen Naturally Inc.**: Advocating for additional design features for CCUS and hydrogen tax credits to maximize emissions reduction outcomes.
+
+3. **Government Funding and Strategic Policies**:
+   - **Kanata Clean Power and Climate Technologies Corp.**: Communicating about potential government funding through the Clean Fuels Fund and the Strategic Innovation Fund.
+   - **Canadian Energy Marketers Association**: Advocating for a specified low carbon intensity fuel infrastructure fund and expanding clean technologies investment tax credit.
+
+4. **Regulatory Framework and Legislation**:
+   - **Calgary Chamber of Commerce**: Communicating about the feasibility and impacts of proposed clean electricity regulations and the regulatory framework for an oil and gas sector greenhouse gas emissions cap.
+
+### Strategy for Communicating with Potential Partners
+
+1. **Identify Common Goals**:
+   - Highlight shared objectives such as reducing greenhouse gas emissions, promoting clean energy, and enhancing economic competitiveness.
+
+2. **Leverage Existing Initiatives**:
+   - Reference ongoing initiatives like the 2030 emissions reduction plan, Clean Fuels Fund, and Strategic Innovation Fund to find common ground and demonstrate alignment with government priorities.
+
+3. **Propose Collaborative Projects**:
+   - Suggest specific projects or initiatives where collaboration could yield mutual benefits, such as joint research on CCUS technologies or co-funding for renewable energy infrastructure.
+
+4. **Emphasize Economic and Environmental Benefits**:
+   - Present data and case studies that illustrate the economic and environmental advantages of proposed collaborations, including job creation, technological innovation, and emissions reductions.
+
+5. **Tailor Communication to Stakeholders**:
+   - Customize messages to address the unique interests and concerns of different stakeholders, whether they are government officials, industry leaders, or community representatives.
+
+6. **Highlight Policy and Funding Opportunities**:
+   - Inform potential partners about relevant policy developments and funding opportunities that could support collaborative efforts, such as investment tax credits and non-repayable grants.
+
+7. **Build a Strong Case for Competitiveness**:
+   - Argue that collaboration on carbon taxation and related initiatives will enhance Canada's competitiveness in the global clean energy market, attracting investment and fostering innovation.
+
+### Example Communication Outline
+
+**Subject: Collaborative Opportunities for Carbon Taxation and Emissions Reduction Initiatives**
+
+**Dear [Recipient Name],**
+
+I hope this message finds you well. I am writing to explore potential collaboration opportunities between [Your Organization] and [Recipient's Organization] in the area of carbon taxation and greenhouse gas emissions reduction.
+
+**Shared Goals and Objectives**:
+- We both aim to significantly reduce greenhouse gas emissions and promote sustainable economic growth.
+- Our organizations are committed to advancing clean energy technologies and supporting Canada's climate policy goals.
+
+**Potential Collaborative Projects**:
+- Joint research and development on Carbon Capture, Utilization, and Storage (CCUS) technologies.
+- Co-funding initiatives under the Clean Fuels Fund and Strategic Innovation Fund to accelerate the deployment of renewable energy infrastructure.
+
+**Economic and Environmental Benefits**:
+- Collaborative efforts can lead to job creation, technological innovation, and substantial emissions reductions.
+- By working together, we can enhance Canada's competitiveness in the global clean energy market.
+
+**Policy and Funding Opportunities**:
+- We can leverage existing policy frameworks and funding opportunities, such as investment tax credits for CCUS and non-repayable grants for low carbon intensity fuel infrastructure.
+
+We believe that by aligning our efforts, we can achieve significant progress towards our shared goals. I would be delighted to discuss this further at your earliest convenience.
+
+Thank you for considering this opportunity for collaboration.
+
+Best regards,
+
+[Your Name]
+[Your Position]
+[Your Contact Information]
+
+This strategy and communication outline should help you effectively engage with potential partners on carbon taxation and related initiatives.
+
+
