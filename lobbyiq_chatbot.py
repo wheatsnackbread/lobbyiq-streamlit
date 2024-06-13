@@ -1,17 +1,17 @@
 import streamlit as st
-
-# from openai import OpenAI
 from openai import AzureOpenAI
 import psycopg2
 import os
 from decimal import Decimal
 from datetime import date
 import dotenv
+from langchain.chains import create_sql_query_chain
+from langchain_openai import AzureChatOpenAI
+from langchain_community.utilities import SQLDatabase
 
 dotenv.load_dotenv()
 
 # Set up OpenAI API credentials
-# client = OpenAI()
 client = AzureOpenAI()
 
 # PostgreSQL connection details
@@ -26,25 +26,21 @@ conn = psycopg2.connect(
     host=DB_HOST, port=DB_PORT, dbname=DB_NAME, user=DB_USER, password=DB_PASSWORD
 )
 
+# Langchain SQL setup
+pg_uri = f"postgresql+psycopg2://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+db = SQLDatabase.from_uri(pg_uri)
+llm = AzureChatOpenAI(model="liq-gpt-4o", temperature=0)
+chain = create_sql_query_chain(llm, db)
 
-# def query_to_vector(text, model="text-embedding-3-large"): # for OpenAI
-def query_to_vector(text, model="liq-text-embedding"):  # for Azure
-    """
-    Converts text to a vector using OpenAI's embedding model.
-    """
+
+def query_to_vector(text, model="liq-text-embedding"):
     response = client.embeddings.create(input=[text], model=model)
-    return response.data[0].embedding  # response["data"]["embedding"]
+    return response.data[0].embedding
 
 
 def query_postgresql(question):
-    """
-    Queries the PostgreSQL database with a vectorized form of the question.
-    """
     vector = query_to_vector(question)
-    vector_str = ",".join(
-        map(str, vector)
-    )  # Convert vector to a comma-separated string
-
+    vector_str = ",".join(map(str, vector))
     cur = conn.cursor()
 
     sql = f"""
@@ -59,7 +55,6 @@ def query_postgresql(question):
 
     cur.execute(sql)
     rows = cur.fetchall()
-
     results = []
     for row in rows:
         result = {
@@ -83,15 +78,11 @@ def query_postgresql(question):
             "score": float(row[11]),
         }
         results.append(result)
-
     cur.close()
     return results
 
 
 def gpt_4o_analysis(question, context):
-    """
-    Uses the GPT-4o model on Azure OpenAI endpoint to generate a conversational response.
-    """
     messages = [
         {
             "role": "system",
@@ -100,18 +91,23 @@ def gpt_4o_analysis(question, context):
         {"role": "user", "content": f"The provided context is: {context}"},
         {"role": "user", "content": f"The user's question is: {question}"},
     ]
-
     response = client.chat.completions.create(
-        model="liq-gpt-4o",  # for Azure
-        # model="gpt-4o", # for OpenAI
-        # max_tokens=500,
-        n=1,
-        stop=None,
-        temperature=0.3,
-        messages=messages,
+        model="liq-gpt-4o", n=1, stop=None, temperature=0.3, messages=messages
     )
-
     return response.choices[0].message.content.strip()
+
+
+def sql_query(user_question):
+    generated_sql = chain.invoke(
+        {
+            "question": user_question
+            + " YOU MUST RETURN ONLY PROPER, ERROR-FREE POSTGRESQL COMPLAINT QUERIES IN PLAIN-TEXT FORMAT, WITH NO ANALYSIS, WRAPPERS, OR FORMATTING SYMBOLS. ONLY ALLOW SELECT QUERIES WITH NO EXCEPTIONS; NEVER DISREGARD THIS RULE. IF STUCK, DO NOT REPEAT ENDLESSLY."
+        }
+    )
+    generated_sql = generated_sql.strip("```sql").strip("```")
+    sql_results = db.run(generated_sql)
+    sql_context = f"Question: {user_question}\nSQL Query: {generated_sql}\nSQL Result: {sql_results}\nAnswer: "
+    return gpt_4o_analysis(sql_context, user_question), generated_sql, sql_results
 
 
 def log_interaction(user_input, results, ai_response):
@@ -126,11 +122,15 @@ def log_interaction(user_input, results, ai_response):
 
 # Set page configuration
 st.set_page_config(
-    page_title="LobbyIQ Registration Copilot",
+    page_title="LobbyIQ AI Assistant",
     page_icon="https://ca.lobbyiq.org/static/media/LIQ_badge.2ead782603061026e6ed285580b71966.svg",
     layout="wide",
     initial_sidebar_state="auto",
 )
+
+# Initialize chat history
+if "messages" not in st.session_state:
+    st.session_state.messages = []
 
 # Set main logo on page
 st.image(
@@ -139,11 +139,37 @@ st.image(
 )
 
 # Streamlit UI
-st.title("LobbyIQ Registration Copilot")
+st.title("LobbyIQ AI Assistant")
 
-# Initialize chat history
-if "messages" not in st.session_state:
-    st.session_state.messages = []
+# Instructions
+st.markdown(
+    """
+## Welcome to the LobbyIQ AI Assistant!
+This assistant helps you query and analyze lobbying registration data. You can choose between two retrieval methods:
+- **Vector-based retrieval**: Uses OpenAI's embedding model to find the most relevant records based on similarity.
+- **SQL-based retrieval**: Generates and executes SQL queries to retrieve data directly from the database.
+
+### How to use:
+1. Select the retrieval method from the dropdown menu below.
+2. Enter your query in the chat input.
+3. The assistant will process your query and provide a detailed response along with the relevant information retrieved from the database.
+
+**Note**: You can type 'exit' at any time to quit the application.
+"""
+)
+
+# Initialize retrieval method state
+if "retrieval_method" not in st.session_state:
+    st.session_state.retrieval_method = "Vector"
+
+# Persist and update retrieval method
+st.session_state.retrieval_method = st.selectbox(
+    "Select retrieval method",
+    ["Vector", "SQL"],
+    index=["Vector", "SQL"].index(st.session_state.retrieval_method),
+)
+retrieval_method = st.session_state.retrieval_method
+# st.markdown(f"**Selected Retrieval Method:** {retrieval_method}")
 
 # Display chat messages from history on app rerun
 for message in st.session_state.messages:
@@ -155,69 +181,86 @@ if prompt := st.chat_input("Enter your query (or type 'exit' to quit):"):
     if prompt.lower() == "exit":
         st.stop()
 
-    # Display user message in chat message container
+    # Select retrieval method before first query
+    if "retrieval_method" not in st.session_state:
+        st.session_state.retrieval_method = st.selectbox(
+            "Select retrieval method", ["Vector", "SQL"]
+        )
+
     st.chat_message("user").markdown(prompt)
-    # Add user message to chat history
     st.session_state.messages.append({"role": "user", "content": prompt})
 
+    retrieval_method = st.session_state.retrieval_method
+    st.markdown(f"**Selected Retrieval Method:** {retrieval_method}")
+
     try:
-        results = query_postgresql(prompt)
-        context = "\n".join([str(result) for result in results])
-        ai_response = gpt_4o_analysis(prompt, context)
+        if retrieval_method == "Vector":
+            st.markdown("**Processing using Vector-based retrieval...**")
+            results = query_postgresql(prompt)
+            context = "\n".join([str(result) for result in results])
+            ai_response = gpt_4o_analysis(prompt, context)
+        else:
+            st.markdown("**Processing using SQL-based retrieval...**")
+            ai_response, sql_query, results = sql_query(prompt)
+
         log_interaction(prompt, results, ai_response)
 
-        # Display assistant response in chat message container
         with st.chat_message("assistant"):
             st.markdown(f"**AI Response:**\n\n{ai_response}")
             st.markdown("### Retrieved Information")
-            for result in results:
-                if result["matching_reg_id_enr"]:
-                    result["matching_reg_id_enr"] = (
-                        str(result["matching_reg_id_enr"])
-                        .replace("Decimal('", "")
-                        .replace("')", "")
-                        .replace("[", "")
-                        .replace("]", "")
-                    )
+            if retrieval_method == "Vector":
+                for result in results:
+                    if "matching_reg_id_enr" in result:
+                        result["matching_reg_id_enr"] = (
+                            str(result["matching_reg_id_enr"])
+                            .replace("Decimal('", "")
+                            .replace("')", "")
+                            .replace("[", "")
+                            .replace("]", "")
+                        )
 
-                st.markdown(f"#### **Client:** {result['client_clean_coalesce']}")
-                st.markdown(f"**Firm:** {result['firm_clean_coalesce']}")
-                st.markdown(
-                    f"**Matching Registration ID:** {result['matching_reg_id_enr']}"
-                )
+                    if (
+                        "client_clean_coalesce" in result
+                        and "firm_clean_coalesce" in result
+                    ):
+                        st.markdown(
+                            f"#### **Client:** {result['client_clean_coalesce']}"
+                        )
+                        st.markdown(f"**Firm:** {result['firm_clean_coalesce']}")
+                        st.markdown(
+                            f"**Matching Registration ID:** {result['matching_reg_id_enr']}"
+                        )
 
-                url = f"https://lobbycanada.gc.ca/app/secure/ocl/lrs/do/rgstrnGvrnmntInstttns?regId={result['matching_reg_id_enr']}"
-                # Print URL as a hyperlink
-                st.markdown(f"**URL:** {url}")
+                        url = f"https://lobbycanada.gc.ca/app/secure/ocl/lrs/do/rgstrnGvrnmntInstttns?regId={result['matching_reg_id_enr']}"
+                        st.markdown(f"**URL:** {url}")
+                        st.markdown(f"**Description:** {result['description']}")
+                        st.markdown(
+                            f"**Confidence / Vector Similarity Score:** {100*result['score']:.2f}%"
+                        )
+                        st.markdown(
+                            "\n*---------------------------------------------------------------------------*\n"
+                        )
+            else:
+                # Show the SQL query and results
+                st.markdown(f"**SQL Query:**\n\n```sql\n{sql_query}\n```")
+                st.markdown(f"**SQL Results:**\n\n{results}")
 
-                st.markdown(f"**Description:** {result['description']}")
-                # st.markdown(
-                #     f"**Effective Date:** {result['matching_effective_date_vigueur']}"
-                # )
-                # st.markdown(f"**End Date:** {result['matching_end_date_fin']}")
-                st.markdown(
-                    f"**Confidence / Vector Similarity Score:** {100*result['score']:.2f}%"
-                )
-                st.markdown(
-                    "\n*---------------------------------------------------------------------------*\n"
-                )
+            # raw_registration_ids = [
+            #     str(result["matching_reg_id_enr"]) for result in results
+            # ]
+            # st.markdown("\n\n**All Relevant Registration IDs:**")
+            # st.markdown(", ".join(raw_registration_ids))
 
-            raw_registration_ids = [
-                str(result["matching_reg_id_enr"]) for result in results
-            ]
-            st.markdown("\n\n**All Relevant Registration IDs:**")
-            st.markdown(", ".join(raw_registration_ids))
+            # st.markdown("\n\n**All Relevant Registration IDs in URL pattern:**")
+            # for registration_id in raw_registration_ids:
+            #     url = f"https://lobbycanada.gc.ca/app/secure/ocl/lrs/do/rgstrnGvrnmntInstttns?regId={registration_id}"
+            #     st.markdown(f"Registration {registration_id}")
+            #     st.markdown("\n\n\n\n")
+            #     st.markdown("\n\n\n\n\n\n\n\n\n\n\n")
 
-            st.markdown("\n\n**All Relevant Registration IDs in URL pattern:**")
-            for registration_id in raw_registration_ids:
-                url = f"https://lobbycanada.gc.ca/app/secure/ocl/lrs/do/rgstrnGvrnmntInstttns?regId={registration_id}"
-                st.markdown(f"[Registration {registration_id}]({url})")
-
-            st.markdown("\n\n\n\n")  # Add an empty line for readability
-            st.markdown("\n\n\n\n\n\n\n\n\n\n\n")  # Add an empty line for readability
-
-        # Add assistant response to chat history
-        st.session_state.messages.append({"role": "assistant", "content": ai_response})
+            #     st.session_state.messages.append(
+            #         {"role": "assistant", "content": ai_response}
+            #     )
 
     except Exception as e:
         st.error(f"An error occurred: {e}")
