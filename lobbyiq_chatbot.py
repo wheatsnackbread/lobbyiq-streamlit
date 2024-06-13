@@ -101,11 +101,27 @@ def sql_query(user_question):
     generated_sql = chain.invoke(
         {
             "question": user_question
-            + " YOU MUST RETURN ONLY PROPER, ERROR-FREE POSTGRESQL COMPLAINT QUERIES IN PLAIN-TEXT FORMAT, WITH NO ANALYSIS, WRAPPERS, OR FORMATTING SYMBOLS. ONLY ALLOW SELECT QUERIES WITH NO EXCEPTIONS; NEVER DISREGARD THIS RULE. IF STUCK, DO NOT REPEAT ENDLESSLY."
+            + " YOU MUST RETURN ONLY PROPER, ERROR-FREE POSTGRESQL COMPLIANT QUERIES IN PLAIN-TEXT FORMAT, WITH NO ANALYSIS, WRAPPERS, OR FORMATTING SYMBOLS. THE QUERIES MUST BE COMPATIBLE WITH A POSTGRESQL SERVER HOSTED ON AZURE. ONLY ALLOW SELECT QUERIES WITH NO EXCEPTIONS; NEVER DISREGARD THIS RULE. VALIDATE THE QUERY SYNTAX FOR POSTGRESQL COMPATIBILITY. IF STUCK, DO NOT REPEAT ENDLESSLY."
         }
     )
     generated_sql = generated_sql.strip("```sql").strip("```")
+    # Print the generated SQL query to the streamlit console
+    # show as markdown as well as append to the chat history
+    with st.chat_message("assistant"):
+        st.markdown(f"**Generated SQL Query:**\n\n```sql\n{generated_sql}\n```")
+        st.session_state.messages.append(
+            {
+                "role": "assistant",
+                "content": f"**Generated SQL Query:**\n\n```sql\n{generated_sql}\n```",
+            }
+        )
     sql_results = db.run(generated_sql)
+    # show as markdown as well as append to the chat history
+    with st.chat_message("assistant"):
+        st.markdown(f"**SQL Results:**\n\n{sql_results}")
+        st.session_state.messages.append(
+            {"role": "assistant", "content": f"**SQL Results:**\n\n{sql_results}"}
+        )
     sql_context = f"Question: {user_question}\nSQL Query: {generated_sql}\nSQL Result: {sql_results}\nAnswer: "
     return gpt_4o_analysis(sql_context, user_question), generated_sql, sql_results
 
@@ -146,8 +162,8 @@ st.markdown(
     """
 ## Welcome to the LobbyIQ AI Assistant!
 This assistant helps you query and analyze lobbying registration data. You can choose between two retrieval methods:
-- **Vector-based retrieval**: Uses OpenAI's embedding model to find the most relevant records based on similarity.
-- **SQL-based retrieval**: Generates and executes SQL queries to retrieve data directly from the database.
+- **SQL-based retrieval**: SUPPORTS ALL TABLES. Generates and executes SQL queries to retrieve data directly from the database.
+- **Vector-based retrieval**: ONLY SUPPORTS REGISTRATIONS. Uses OpenAI's embedding model to find the most relevant records based on similarity.
 
 ### How to use:
 1. Select the retrieval method from the dropdown menu below.
@@ -160,7 +176,7 @@ This assistant helps you query and analyze lobbying registration data. You can c
 
 # Initialize retrieval method state
 if "retrieval_method" not in st.session_state:
-    st.session_state.retrieval_method = "Vector"
+    st.session_state.retrieval_method = "SQL"
 
 # Persist and update retrieval method
 st.session_state.retrieval_method = st.selectbox(
@@ -207,8 +223,11 @@ if prompt := st.chat_input("Enter your query (or type 'exit' to quit):"):
 
         with st.chat_message("assistant"):
             st.markdown(f"**AI Response:**\n\n{ai_response}")
-            st.markdown("### Retrieved Information")
+            st.session_state.messages.append(
+                {"role": "assistant", "content": f"**AI Response:**\n\n{ai_response}"}
+            )
             if retrieval_method == "Vector":
+                st.markdown("### Retrieved Information")
                 for result in results:
                     if "matching_reg_id_enr" in result:
                         result["matching_reg_id_enr"] = (
@@ -242,8 +261,9 @@ if prompt := st.chat_input("Enter your query (or type 'exit' to quit):"):
                         )
             else:
                 # Show the SQL query and results
-                st.markdown(f"**SQL Query:**\n\n```sql\n{sql_query}\n```")
-                st.markdown(f"**SQL Results:**\n\n{results}")
+                # st.markdown(f"**SQL Query:**\n\n```sql\n{sql_query}\n```")
+                # st.markdown(f"**SQL Results:**\n\n{results}")
+                pass
 
             # raw_registration_ids = [
             #     str(result["matching_reg_id_enr"]) for result in results
