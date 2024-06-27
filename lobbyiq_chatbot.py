@@ -8,6 +8,10 @@ import dotenv
 from langchain.chains import create_sql_query_chain
 from langchain_openai import AzureChatOpenAI
 from langchain_community.utilities import SQLDatabase
+import matplotlib.pyplot as plt
+import pandas as pd
+import pandas.io.sql as psql
+
 
 dotenv.load_dotenv()
 
@@ -31,6 +35,76 @@ pg_uri = f"postgresql+psycopg2://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB
 db = SQLDatabase.from_uri(pg_uri)
 llm = AzureChatOpenAI(model="liq-gpt-4o", temperature=0)
 chain = create_sql_query_chain(llm, db)
+
+st.set_option("deprecation.showPyplotGlobalUse", False)
+
+
+def generate_graphic(df):
+    if not df.empty:
+        visualization_code = get_visualization_code(df)
+
+        # Print the generated visualization code to the Streamlit console for debugging
+        st.code(visualization_code, language="python")
+        # st.session_state.messages.append(
+        #     {
+        #         "role": "assistant",
+        #         "content": st.code(visualization_code, language="python"),
+        #     }
+        # )
+
+        try:
+            # Extract the code between triple backticks and delete any leading python language specifier
+            extracted_code = visualization_code.split("```")[1].strip()
+
+            # Execute the extracted code
+            visual = exec(extracted_code, {"plt": plt, "df": df})
+
+            # Display the generated visualization in streamlit conversation
+            st.pyplot(visual)
+            # st.session_state.messages.append(
+            #     {
+            #         "role": "assistant",
+            #         "content": st.pyplot(visual),
+            #     }
+            # )
+
+        except Exception as e:
+            st.write(f"An error occurred while generating the visualization: {e}")
+            st.session_state.messages.append(
+                {
+                    "role": "assistant",
+                    "content": f"An error occurred while generating the visualization: {e}",
+                }
+            )
+    else:
+        st.write("No results to visualize.")
+        st.session_state.messages.append(
+            {
+                "role": "assistant",
+                "content": "No results to visualize.",
+            }
+        )
+
+
+def get_visualization_code(df):
+    # Convert the DataFrame to a dictionary format for easier analysis by GPT-4o
+    df_dict = df.to_dict(orient="list")
+
+    messages = [
+        {
+            "role": "system",
+            "content": "You are an AI assistant specialized in data visualization. Based on the given data, provide the appropriate matplotlib code to visualize it.",
+        },
+        {
+            "role": "user",
+            "content": f"Here is the data: {df_dict}. Generate the matplotlib code for the most suitable visualization, which should be returned as an object that can be shown in a streamlit conversational environment. DO NOT use streamlit to display it to the user; you are simply returning the object. You can provide comments on how you want to proceed, butyou may provide only one block of code enclosed in triple backticks, but do NOT specify the language after the backticks. This means write ```, not ```python...",
+        },
+    ]
+
+    response = client.chat.completions.create(
+        model="liq-gpt-4o", n=1, stop=None, temperature=0, messages=messages
+    )
+    return response.choices[0].message.content.strip()
 
 
 def query_to_vector(text, model="liq-text-embedding"):
@@ -97,6 +171,9 @@ def gpt_4o_analysis(question, context):
     return response.choices[0].message.content.strip()
 
 
+import ast
+
+
 def sql_query(user_question):
     generated_sql = chain.invoke(
         {
@@ -105,8 +182,6 @@ def sql_query(user_question):
         }
     )
     generated_sql = generated_sql.strip("```sql").strip("```")
-    # Print the generated SQL query to the streamlit console
-    # show as markdown as well as append to the chat history
     with st.chat_message("assistant"):
         st.markdown(f"**Generated SQL Query:**\n\n```sql\n{generated_sql}\n```")
         st.session_state.messages.append(
@@ -116,12 +191,38 @@ def sql_query(user_question):
             }
         )
     sql_results = db.run(generated_sql)
-    # show as markdown as well as append to the chat history
+
+    # Debug: print the raw sql_results
+    # st.write(f"Raw SQL Results: {sql_results}")
+
+    # Convert SQL results to DataFrame
+    try:
+        if sql_results:
+            # Parse the string into a list of tuples
+            # Convert to DataFrame
+            # df = pd.DataFrame(parsed_results, columns=["Title", "Count"])
+            df = pd.read_sql_query(generated_sql, con=conn)
+        else:
+            df = pd.DataFrame()
+    except Exception as e:
+        st.write(f"Error converting SQL results to DataFrame: {e}")
+        df = pd.DataFrame()
+
     with st.chat_message("assistant"):
         st.markdown(f"**SQL Results:**\n\n{sql_results}")
         st.session_state.messages.append(
             {"role": "assistant", "content": f"**SQL Results:**\n\n{sql_results}"}
         )
+
+        # Display the SQL results in a table format
+        if not df.empty:
+            st.dataframe(df)
+        else:
+            st.write("No results returned from the SQL query.")
+
+        # Generate graphic based on SQL results
+        generate_graphic(df)
+
     sql_context = f"Question: {user_question}\nSQL Query: {generated_sql}\nSQL Result: {sql_results}\nAnswer: "
     return gpt_4o_analysis(sql_context, user_question), generated_sql, sql_results
 
@@ -226,6 +327,7 @@ if prompt := st.chat_input("Enter your query (or type 'exit' to quit):"):
             st.session_state.messages.append(
                 {"role": "assistant", "content": f"**AI Response:**\n\n{ai_response}"}
             )
+
             if retrieval_method == "Vector":
                 st.markdown("### Retrieved Information")
                 for result in results:
